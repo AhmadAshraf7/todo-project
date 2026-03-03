@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import star from "../assets/star-line.svg";
 import trash from "../assets/trash.svg";
 import date from "../assets/date.svg";
@@ -13,6 +13,17 @@ export default function TaskCard({ task, onDelete, onComplete, onImportant, onUp
   const [editDate, setEditDate] = useState(task.date);
   const [editImportant, setEditImportant] = useState(task.important);
   const [editCompleted, setEditCompleted] = useState(task.completed);
+
+  // Sync modal fields with current task whenever modal opens
+  useEffect(() => {
+    if (isEditing) {
+      setEditTitle(task.title);
+      setEditDescription(task.description);
+      setEditDate(task.date);
+      setEditImportant(task.important); // important stays checked
+      setEditCompleted(task.completed);
+    }
+  }, [isEditing, task]);
 
   const handleSave = () => {
     if (!editTitle.trim()) return;
