@@ -1,7 +1,7 @@
 import pic from "..//assets/me.png"
 export default function RightPanel() {
   return (
-    <div className="w-64 bg-teal-100 border-l p-6">
+    <div className="w-64 bg-teal-200 border-l p-6">
       <h2 className="font-bold text-3xl text-center mb-4 mt-15">Hi Ahmad</h2>
 
       <div>

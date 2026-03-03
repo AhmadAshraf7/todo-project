@@ -8,7 +8,7 @@ export default function Sidebar({ activeTab, setActiveTab, openModal }) {
   ];
 
   return (
-    <div className="w-70 min-h-screen bg-teal-100 border-r px-5 py-6 flex flex-col">
+    <div className="w-70 min-h-screen bg-teal-200 border-r px-5 py-6 flex flex-col">
       <h1 className="text-xl font-bold mb-8 text-center">TO-DO LIST</h1>
 
       <button
@@ -24,8 +24,8 @@ export default function Sidebar({ activeTab, setActiveTab, openModal }) {
             key={item.id}
             onClick={() => setActiveTab(item.id)}
             className={`cursor-pointer pl-3 border-2 transition ${activeTab === item.id
-                ? "text-teal-600 border-teal-600 font-semibold"
-                : "text-gray-600 border-transparent"
+              ? "text-teal-600 border-teal-600 font-semibold"
+              : "text-gray-600 border-transparent"
               }`}
           >
             {item.label}
