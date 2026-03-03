@@ -80,7 +80,7 @@ export default function App() {
   };
 
   return (
-    <div className="h-screen flex bg-slate-100">
+    <div className="min-h-screen flex bg-slate-100">
       <Sidebar
         activeTab={activeTab}
         setActiveTab={setActiveTab}
