@@ -12,13 +12,15 @@ export default function Main({
   openModal
 }) {
   const [search, setSearch] = useState("");
+  const today = new Date().toISOString().split("T")[0]; // today's date
 
   const filteredTasks = tasks
     .filter((task) => {
       if (activeTab === "completed") return task.completed;
       if (activeTab === "pending") return !task.completed;
       if (activeTab === "important") return task.important;
-      return true;
+      if (activeTab === "today") return task.date === today; // only today's tasks
+      return true; // 'all' tab
     })
     .filter((task) =>
       task.title.toLowerCase().includes(search.toLowerCase())
@@ -26,7 +28,6 @@ export default function Main({
 
   return (
     <div className="flex-1 p-8">
-
       <div className="flex justify-between items-center mb-6">
         <h2 className="text-2xl font-bold capitalize">
           {activeTab} tasks ({filteredTasks.length})
